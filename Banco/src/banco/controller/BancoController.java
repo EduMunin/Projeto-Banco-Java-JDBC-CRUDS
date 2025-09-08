@@ -6,10 +6,10 @@ import banco.dao.UsersDAO;
 import banco.view.BancoView;
 
 public class BancoController {
-	private BancoView view = new BancoView();
-	private UsersDAO usersDAO = new UsersDAO();
-	private AccountsDAO accountsDAO = new AccountsDAO();
-	private TransactionsDAO transactionsDAO = new TransactionsDAO();
+	private BancoView view;
+	private UsersDAO usersDAO;
+	private AccountsDAO accountsDAO;
+	private TransactionsDAO transactionsDAO;
 	
 	public BancoController(BancoView view, UsersDAO usersDAO, AccountsDAO accountsDAO, TransactionsDAO transactionsDAO) {
 		this.view = view;
@@ -18,6 +18,29 @@ public class BancoController {
 		this.usersDAO = usersDAO;
 		
 	}
+	
+	public void Start() {
+		boolean exit = false;
+		while (!exit) {
+			view.AccoountMenu();
+			int Option = view.ReadOption();
+			
+			switch (Option) {
+			case 1:
+				//RegisterAccount();
+				break;
 
+			case 2:
+				//LoginAccount();
+				
+				break;
+				
+			default:
+				view.ShowMessage("Option Invalid!");
+				break;
+			}
+			
+		}
+	}
 	
 }
