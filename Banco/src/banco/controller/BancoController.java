@@ -4,6 +4,7 @@ import banco.dao.AccountsDAO;
 import banco.dao.TransactionsDAO;
 import banco.dao.UsersDAO;
 import banco.view.BancoView;
+import java.util.Scanner;
 
 public class BancoController {
 	private BancoView view;
@@ -16,7 +17,6 @@ public class BancoController {
 		this.accountsDAO = accountsDAO;
 		this.transactionsDAO = transactionsDAO;
 		this.usersDAO = usersDAO;
-		
 	}
 	
 	public void Start() {

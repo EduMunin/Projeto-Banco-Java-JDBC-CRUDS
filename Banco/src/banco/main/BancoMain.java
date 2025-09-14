@@ -12,7 +12,7 @@ public class BancoMain {
 		TransactionsDAO transactionsDAO = new TransactionsDAO();
 		BancoController controller = new BancoController(View, usersDAO, accountsDAO, transactionsDAO);
 		
-		
+		controller.Start();
 	}
 
 }

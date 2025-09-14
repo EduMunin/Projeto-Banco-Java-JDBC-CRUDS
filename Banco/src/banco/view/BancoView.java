@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import banco.util.DatabaseConnection;
 import banco.models.Accounts;
+import banco.models.Transactions;
 import banco.models.Users;
 
 public class BancoView {
@@ -65,6 +66,13 @@ public class BancoView {
 		
 	}
 	
+	public void ShowAllTransactions(List<Transactions> ListTransactions) {
+		for (Transactions transactions : ListTransactions) {
+			System.out.println("Id transaction: " + transactions.getTransactionId() + "Id account: " + transactions.getAccountId());
+			System.out.println("Type: " + transactions.getType() + "Amout: " + transactions.getAmout() + "Date: " + transactions.getTransactionDate());
+		}
+	}
+	
 	public void ShowBalance(int IdAccount) {
 		String sql = "SELECT balance FROM Accounts WHERE id = ?";
 		try(Connection conn = DatabaseConnection.getConnection();
@@ -74,7 +82,21 @@ public class BancoView {
 			System.out.println("Balance: " + rs.getBigDecimal(IdAccount));
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("Erro: " + e.getMessage());
 		}
 	}
+	
+	public void ShowTransactions(Transactions transaction) {
+		System.out.println("IdTransaction: " + transaction.getTransactionId() + "IdAccount " + transaction.getAccountId());
+		System.out.println("Type: " + transaction.getType() + "Amout: " + transaction.getAmout());
+	}
+	
+	public void ShowUser(Users user) {
+		System.out.println("Id: " + user.getId() + "CPF: " + user.getCpf() + "Name: " + user.getName() + "PassWord: " + user.getpassword());
+	}
+	
+	public void ShowAccount(Accounts account) {
+		System.out.println("Id: " + account.getAccountId() + "IdUser: " + account.getUserId() + "Balance: " + account.getBalance());
+	}
+	
 }
