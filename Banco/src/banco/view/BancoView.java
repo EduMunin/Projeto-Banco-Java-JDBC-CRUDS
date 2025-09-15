@@ -15,6 +15,12 @@ import banco.models.Users;
 public class BancoView {
 	private Scanner scanner;
 	
+	//construtor
+	
+	public BancoView() {
+        scanner = new Scanner(System.in);
+    }
+
 	public void StartMenu() {
 		System.out.println("1 - Login");
 		System.out.println("2 - Register");
@@ -87,16 +93,22 @@ public class BancoView {
 	}
 	
 	public void ShowTransactions(Transactions transaction) {
-		System.out.println("IdTransaction: " + transaction.getTransactionId() + "IdAccount " + transaction.getAccountId());
 		System.out.println("Type: " + transaction.getType() + "Amout: " + transaction.getAmout());
 	}
 	
 	public void ShowUser(Users user) {
-		System.out.println("Id: " + user.getId() + "CPF: " + user.getCpf() + "Name: " + user.getName() + "PassWord: " + user.getpassword());
+		System.out.println("CPF: " + user.getCpf() + "Name: " + user.getName() + "PassWord: " + user.getpassword());
 	}
 	
 	public void ShowAccount(Accounts account) {
-		System.out.println("Id: " + account.getAccountId() + "IdUser: " + account.getUserId() + "Balance: " + account.getBalance());
+		System.out.println("Balance: " + account.getBalance());
+	}
+	
+	public void ReadRegister() {
+		System.out.println("First think you need to set the users informations: ");
+		System.out.println("Name: ");
+		scanner.nextLine();
+		
 	}
 	
 }

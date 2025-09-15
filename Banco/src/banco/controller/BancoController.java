@@ -22,10 +22,9 @@ public class BancoController {
 	public void Start() {
 		boolean exit = false;
 		while (!exit) {
-			view.AccoountMenu();
-			int Option = view.ReadOption();
-			
-			switch (Option) {
+			view.StartMenu();
+			int option = view.ReadOption();
+			switch (option) {
 			case 1:
 				//RegisterAccount();
 				break;
@@ -41,6 +40,16 @@ public class BancoController {
 			}
 			
 		}
+	}
+	
+	public void RegisterAccount() {
+		System.out.println("First think you need to set the users informations: ");
+		System.out.println("Name: ");
+		
+	}
+	
+	public void LoginAccount() {
+		
 	}
 	
 }
